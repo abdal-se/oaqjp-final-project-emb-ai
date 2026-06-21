@@ -7,11 +7,8 @@ app = Flask("emotion_detector")
 def emotioner():
     text_to_analyze = request.args.get("textToAnalyze")
 
-    if not text_to_analyze or text_to_analyze.strip() == "":
-       return "Please enter text to analyze."
-
-
     response = emotion_detector(text_to_analyze)
+    return str(response)
     
     anger = response["anger"]
     disgust = response["disgust"]
